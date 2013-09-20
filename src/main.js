@@ -1,13 +1,19 @@
 
 // Since the comment template never changes, we can keep this global
-var commentTemplateHtml = $('#templates .comment').html()
+var commentTemplateHtml = $('#templates .comment').html();
 var commentTemplate = _.template(commentTemplateHtml);
 
-var comments = [
-  { username: 'xXx_coolkid_xXx', message: 'dude ur almost as kool as me' },
-  { username: 'top_redditr', message: 'old' },
-  { username: 'l33tschool', message: 'w/e man u cnt b33t m3' }
-];
+// Grab comments from localstorage
+var comments = localStorage.getObject('comments');
+
+// If we've never stored comments before, initialize it
+if (comments === null) {
+	comments = [
+	  { username: 'xXx_coolkid_xXx', message: 'dude ur almost as kool as me' },
+	  { username: 'top_redditr', message: 'old' }
+	];
+}
+
 
 var render = function () {
   // Empty the comments content div so that we don't duplicate comments
@@ -23,11 +29,15 @@ var render = function () {
 $('.new-comment button').on('click', function (e) {
   var newUsername = $('.new-comment [name=username]').val();
   var newMessage = $('.new-comment [name=message]').val();
+
   // Add new comment to our comments array
   comments.push({
     username: newUsername,
     message: newMessage
   });
+  // Store the new comments object in local storage
+  localStorage.setObject('comments', comments);
+
   // Re-render the comments so the new one shows up
   render();
 });
