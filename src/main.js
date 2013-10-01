@@ -120,3 +120,47 @@ alarm.trigger('ring');
 
 
 
+//Communicating between Backbone Views - Part 1
+var radioStation = _.extend({}, Backbone.Events);
+
+var DummyView = Backbone.View.extend({});
+var view = new DummyView();
+
+view.listenTo(radioStation, 'new_deal', function(deal){
+	console.log("\nIt's a new deal! ", deal);
+});
+
+radioStation.trigger('new_deal', { name: 'Buy 1 Get 1 FREE'});
+
+
+//Communicating between Backbone Views - Part 2
+var radioStation = _.extend({}, Backbone.Events);
+
+var BubbleView = Backbone.View.extend({
+	initialize: function(options){
+		this.size = options.size;
+	},
+	pop: function(){
+		radioStation.trigger('pop', this.size);
+	}
+});
+
+var BubbleCounterView = Backbone.View.extend({
+	total: 0,
+	initialize: function(options){
+		this.listenTo(radioStation, 'pop', this.recordPop);
+	},
+	recordPop: function(bubbleSize){
+		this.total += bubbleSize;
+		console.log('\nTotal bubble size popped: ', this.total);
+	}
+});
+
+var smallBubbleView = new BubbleView({ size: 2 });
+var largeBubbleView = new BubbleView({ size: 17 });
+var bubbleCounterView = new BubbleCounterView();
+
+smallBubbleView.pop();
+largeBubbleView.pop();
+
+
