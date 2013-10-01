@@ -164,3 +164,31 @@ smallBubbleView.pop();
 largeBubbleView.pop();
 
 
+//Ex 4.1 - Create Backbone Event Aggregator
+var chatServer = _.extend({}, Backbone.Events);
+
+var ChatView = Backbone.View.extend({
+	initialize: function(options){
+		this.name = options.name
+	},
+	sendMessage: function(msg){
+		chatServer.trigger('message', this.name, msg) 
+	}
+});
+
+var testChatListener = new (Backbone.View.extend({}));
+var chatCount = 0;
+testChatListener.listenTo(chatServer, 'message', function (name, message) {
+  console.log('\n' + name + ' says:' + message);
+  chatCount += 1;
+});
+// ----
+
+var aliceChatView = new ChatView({ name: 'Alice' });
+var bobChatView = new ChatView({ name: 'Bob' });
+
+bobChatView.sendMessage("\nhi alice");
+aliceChatView.sendMessage("\nwho is this?");
+bobChatView.sendMessage("\nalice no");
+
+console.log('\nChat count should be 3:', chatCount);
