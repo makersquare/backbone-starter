@@ -1,4 +1,3 @@
-/*
 //Ex 1
 var ButtonView = Backbone.View.extend({
 	render: function(){
@@ -31,7 +30,7 @@ var profileView = new ProfileView({
 })
 
 profileView.render();
-*/
+
 
 //Backbone Events
 var WhinyView = Backbone.View.extend({
@@ -51,3 +50,19 @@ var WhinyView = Backbone.View.extend({
 
 var view = new WhinyView();
 $('body').append( view.render().el ); // render func should return "this.el" if the element 'el' is not chained when calling render();
+
+
+
+//Backbone object's on, off function
+var DummyView = Backbone.View.extend({});
+
+var view = new DummyView();
+
+view.on('random-event-name', function (x,y,z) {
+  console.log('bluh!', x, y, z);
+});
+
+view.trigger('random-event-name', 11, 22, 33);
+view.off('random-event-name');
+view.trigger('random-event-name', 99, 88, 77); // no reponse!
+
