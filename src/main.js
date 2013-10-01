@@ -1,3 +1,4 @@
+/*
 //Ex 1
 var ButtonView = Backbone.View.extend({
 	render: function(){
@@ -30,4 +31,23 @@ var profileView = new ProfileView({
 })
 
 profileView.render();
+*/
 
+//Backbone Events
+var WhinyView = Backbone.View.extend({
+	events: {
+    'click .my-button': 'whine'
+  },
+
+  whine: function () {
+    alert('owwwwwwwwwwwwww');
+  },
+
+  render: function () {
+    $(this.el).html('<button class="my-button">o_o</button>');
+    return this; // "this.el", when calling the method as view.render()
+  }
+});
+
+var view = new WhinyView();
+$('body').append( view.render().el ); // render func should return "this.el" if the element 'el' is not chained when calling render();
