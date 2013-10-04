@@ -1,3 +1,7 @@
+/* 
+ * main.js
+ *
+ */
 (function () {
 
   // Create our stocks
@@ -16,10 +20,7 @@
     $('.stocks').append(view.el);
   });
 
-  // ----
   // Get realtime stock data
-  // It's not required that you understand the code.
-
   window.updateStocks = function (data) {
 
     _.each(data.query.results.quote, function (quote) {

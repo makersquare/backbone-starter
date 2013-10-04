@@ -1,3 +1,8 @@
+/* 
+ * stock-view.js
+ *
+ */
+
 (function () {
 
   window.StockView = Backbone.View.extend({
