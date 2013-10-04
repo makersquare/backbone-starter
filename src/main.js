@@ -1,3 +1,7 @@
+/* 
+ * main.js
+ *
+ */
 (function () {
 
   // Create our stocks
@@ -11,15 +15,12 @@
 
   // Create a view for each stock and render its element to the page
   _.each(stocks, function (stock) {
-    var view = new StockView({ model: stock });
+    var view = new StockView({ model: stock }); /* read */
     view.render();
     $('.stocks').append(view.el);
   });
 
-  // ----
   // Get realtime stock data
-  // It's not required that you understand the code.
-
   window.updateStocks = function (data) {
 
     _.each(data.query.results.quote, function (quote) {
