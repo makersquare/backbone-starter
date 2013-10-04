@@ -15,7 +15,7 @@
 
   // Create a view for each stock and render its element to the page
   _.each(stocks, function (stock) {
-    var view = new StockView({ model: stock });
+    var view = new StockView({ model: stock }); /* read */
     view.render();
     $('.stocks').append(view.el);
   });

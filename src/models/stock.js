@@ -15,11 +15,10 @@
 	*/
   window.Stock = Backbone.Model.extend({
     updatePrice: function (newPrice) {
-	    this.newPrice = parseFloat(newPrice);
-	    this.set('newPrice', this.newPrice);
-			console.log('Updating', this.get('name'), 'price to:', this.newPrice);
+	    this.price = parseFloat(newPrice);
+	    this.set({ price: this.price });
+			console.log('Updating', this.get('name'), 'price to:', this.get('price'));
     }
   });
-
 
 })();
