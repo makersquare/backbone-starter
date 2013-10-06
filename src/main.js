@@ -18,7 +18,6 @@
 
   // ----
   // Get realtime stock data
-  // It's not required that you understand the code.
 
   window.updateStocks = function (data) {
 
