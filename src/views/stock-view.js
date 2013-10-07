@@ -15,7 +15,7 @@
 			var priceTemplateHtml = $('#templates .stock').html();
 			var priceTemplate = _.template(priceTemplateHtml);
 			var newHtml = priceTemplate({ name: this.model.get('name'), price: this.model.get('price') });
-			console.log(newHtml);
+			//console.log(newHtml);
 			$(this.el).html(newHtml);
 		}
   });
