@@ -1,0 +1,44 @@
+
+body {
+  background: #eee;
+}
+
+.container {
+  background: #f9f9f9;
+  margin: 0 auto;
+  padding: 1px 20px 20px;
+  width: 400px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 4px;
+}
+
+.new-task input {
+  font-size: 1.4em;
+}
+
+#task-list .task {
+  font-size: 2em;
+}
+
+#task-list .task label {
+  cursor: pointer;
+  padding: 0 5px;
+}
+#task-list .task label:hover {
+  background: #70CDD4;
+}
+
+#task-list .task .check {
+  position: relative; top: -4px;
+}
+
+#task-list .task.done label {
+  text-decoration: line-through;
+}
+
+#templates {
+  display: none;
+}

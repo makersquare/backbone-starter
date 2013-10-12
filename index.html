@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Backbone Starter</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="product container">
+  <h2>Products</h2>
+
+<div id="products"></div>
+</div>
+
+
+<br />
+
+
+<div class="cart container">
+  <h3>Cart</h3>
+
+<div id="cart"></div>
+<hr />
+<div><strong>Total:</strong> $<span id="total">0.00</span></div>
+</div>
+
+
+<div id="templates">
+
+  <script class="product" type="text/template">
+    <label>
+      {{ name }}
+      ${{ price }}
+      <button class="buy" type="submit">Add to cart</button>
+    </label>
+  </script>
+
+</div>
+
+<!-- 3rd-party scripts -->
+<script src="vendor/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="vendor/underscore.js" type="text/javascript"></script>
+<script src="vendor/backbone.js" type="text/javascript"></script>
+
+<!-- Globals -->
+<script src="src/util.js" type="text/javascript"></script>
+<!-- Models -->
+<script src="src/models/product.js" type="text/javascript"></script>
+<!-- Views -->
+<script src="src/views/product-view.js" type="text/javascript"></script>
+<script src="src/views/store-view.js" type="text/javascript"></script>
+<script src="src/views/shopping-cart-view.js" type="text/javascript"></script>
+<!-- Main Entry -->
+<script src="src/main.js" type="text/javascript"></script>
+
+</body>
+</html>
