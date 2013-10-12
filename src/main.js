@@ -1,3 +1,4 @@
+
 (function () {
     window.inventory = new Inventory();
     window.cart = new Inventory();
