@@ -8,7 +8,7 @@ var TodoView = Backbone.View.extend({
   render: function() {
     $(this.el).empty();
     for (var i = 0; i < this.todos.length; i++) {
-        var newHtml = this.template(this.todos[i]);
+        var newHtml = this.template(this.todos[i].toJSON());
         $(this.el).append(newHtml);
     }
   }
