@@ -8,7 +8,8 @@ var todo2 = new Todo({
 })
 var todosView = new TodoView({
   todos: [todo1, todo2],
-  el: $('.todos')
+  el: $('.todos'),
+  newTodoForm: $('#templates .new-todo').html()
 })
 
 todosView.render();
